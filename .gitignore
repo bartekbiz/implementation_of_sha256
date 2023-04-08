@@ -1,0 +1,5 @@
+# Python virtual envfiles
+.venv
+
+# Pycharm files 
+.idea
