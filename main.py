@@ -1,10 +1,21 @@
+# THIS CODE HAS ITS SOURCE IN THIS ARTICLE:
+# https://medium.com/@domspaulo/python-implementation-of-sha-256-from-scratch-924f660c5d57
+
+# The initial hash values, h, are usually hardcoded and defined by the NIST.
+# We take them as they are in hexadecimal values and
+# translate them to our preferred binary representation — a list of 32 bits.
+# The values are the first 32 bits of the fractional parts of
+# the square roots of the first 8 primes.
+h = ['0x6a09e667', '0xbb67ae85', '0x3c6ef372', '0xa54ff53a',
+     '0x510e527f', '0x9b05688c', '0x1f83d9ab', '0x5be0cd19']
+
 
 def translate_string_to_bits(message):
     # string characters to unicode values
-    charcodes = [ord(c) for c in message]
+    char_codes = [ord(c) for c in message]
     # unicode values to 8-bit strings (removed binary indicator)
     bytes_array = []
-    for char in charcodes:
+    for char in char_codes:
         bytes_array.append(bin(char)[2:].zfill(8))
     # 8-bit strings to list of bits as integers
     bits = []
